@@ -2,5 +2,43 @@
    FEATURED
    ========================================================================== */
 .featured {
+    padding: 60px 30px;
+    position: relative;
+    &:after {
+        .clearfix;
+    }
 
+    .text {
+        width: 380px;
+        padding: 0 20px;
+        float: left;
+        font-size: 21px;
+        line-height: 26px;
+
+        .heading {
+            margin: 0 -200px 40px 0;
+            font: 300 38px @font-default;
+            letter-spacing: -.05em;
+            text-transform: uppercase;
+        }
+
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .photo {
+        width: 720px;
+        margin: -60px 0;
+        float: right;
+        position: relative;
+        right: 110px;
+        user-select: none;
+
+        img {
+            display: block;
+        }
+    }
 }
