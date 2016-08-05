@@ -91,9 +91,7 @@ module.exports = function(grunt) {
                     src: [
                         d.bower + 'jquery/dist/jquery.min.js',
                         d.bower + 'jquery/dist/jquery.min.map',
-                        d.bower + 'fastclick/lib/fastclick.js',
-                        d.bower + 'jquery.countdown/dist/jquery.countdown.min.js',
-                        d.bower + 'magnific-popup/dist/jquery.magnific-popup.min.js',
+                        d.bower + 'slick-carousel/slick/slick.min.js'
                     ],
                     dest: temp.js + 'vendor'
                 }]
@@ -108,7 +106,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: temp.js + 'vendor',
                     src: '*.min.*',
-                    dest: dist.js + 'vendor',
+                    dest: dist.js,
                 }]
             },
             css_temp: {
@@ -117,8 +115,7 @@ module.exports = function(grunt) {
                     flatten: true,
                     src: [
                         d.bower + 'normalize-css/normalize.css',
-                        d.bower + 'slick-carousel/slick/slick.css',
-                        d.bower + 'magnific-popup/dist/magnific-popup.css'
+                        d.bower + 'slick-carousel/slick/slick.css'
                     ],
                     dest: temp.css + 'vendor'
                 }]
@@ -127,13 +124,13 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     flatten: true,
-                    src: [temp.css + 'normalize.css', temp.css + 'plugins.css'],
+                    src: [temp.css + 'normalize.css'],
                     dest: dist.css
                 }, {
                     expand: true,
                     flatten: true,
                     src: temp.css + 'vendor/*.min.css',
-                    dest: dist.css + 'vendor'
+                    dest: dist.css
                 }]
             },
             img_temp: {
@@ -463,7 +460,7 @@ module.exports = function(grunt) {
     grunt.registerTask("css:process", ["less:default", "postcss:default"]);
 
     grunt.registerTask("js", ["js:start"]);
-    grunt.registerTask("js:start", ["clean:js", "copy:js_temp", "uglify:default", "concat:js", "copy:js_dist"]);
+    grunt.registerTask("js:start", ["clean:js", "copy:js_temp"/*, "uglify:default", "concat:js" */, "copy:js_dist"]);
     grunt.registerTask("js:process", ["newer:copy:js_temp", "newer:copy:js_dist"]);
 
     grunt.registerTask("img", ["img:start"]);

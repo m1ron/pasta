@@ -22,12 +22,16 @@ body {
 }
 .clearfix {
     display: table;
-    content: "\0020";
+    content: '\0020';
     clear: both;
 }
 .wrapper {
+    padding: 0 20px;
     max-width: @max-width;
     margin: 0 auto;
+    @media @desktop-sm {
+        padding: 0;
+    }
     &:after {
         .clearfix;
     }

@@ -26,16 +26,17 @@ body {
 }
 .clearfix {
   display: table;
-  content: "\0020";
+  content: '\0020';
   clear: both;
 }
 .wrapper {
+  padding: 0 20px;
   max-width: 1320px;
   margin: 0 auto;
 }
 .wrapper:after {
   display: table;
-  content: "\0020";
+  content: '\0020';
   clear: both;
 }
 /* ==========================================================================
@@ -47,7 +48,7 @@ body {
 }
 .featured:after {
   display: table;
-  content: "\0020";
+  content: '\0020';
   clear: both;
 }
 .featured .text {
@@ -83,17 +84,20 @@ body {
 /* ==========================================================================
    CAROUSEL
    ========================================================================== */
-.carousel {
-  padding: 25px 0 30px;
+.carousels {
+  padding: 30px 0;
   background: #ccc;
+}
+.carousel {
+  padding: 30px 0;
 }
 .carousel:after {
   display: table;
-  content: "\0020";
+  content: '\0020';
   clear: both;
 }
 .carousel .heading {
-  margin: 0 0 5px;
+  margin: 0;
   font: 300 25px Helvetica, Arial, sans-serif;
   text-transform: uppercase;
 }
@@ -105,15 +109,15 @@ body {
 }
 .carousel .list:after {
   display: table;
-  content: "\0020";
+  content: '\0020';
   clear: both;
 }
 .carousel .list .item {
   width: 240px;
-  margin: 0 5px;
+  margin: 5px;
   float: left;
   background: #fff;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.35);
 }
 .carousel .list .item:nth-child(n+6) {
   display: none;
@@ -127,6 +131,10 @@ body {
 .carousel .list .photo {
   max-width: 240px;
   display: block;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .carousel .list .title {
   padding: 13px 10px 23px;
@@ -162,5 +170,10 @@ body {
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
+@media (min-width: 1170px) {
+  .wrapper {
+    padding: 0;
+  }
+}
 
 /*# sourceMappingURL=maps/main.css.map */
