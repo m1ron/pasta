@@ -7,6 +7,7 @@
 }
 .carousel {
     padding: 30px 0;
+    position: relative;
     &:after {
         .clearfix;
     }
@@ -32,8 +33,58 @@
             float: left;
             background: @color-white;
             box-shadow: 1px 1px 1px rgba(0, 0, 0, .35);
-            &:nth-child(n+6) {
-                display: none;
+            @media @mobile-lg {
+                &:nth-child(n+3) {
+                    display: none;
+                }
+            }
+            @media @tablet-md {
+                &:nth-child(n+3) {
+                    display: block;
+                }
+                &:nth-child(n+4) {
+                    display: none;
+                }
+            }
+            @media @desktop-sm {
+                &:nth-child(n+4) {
+                    display: block;
+                }
+                &:nth-child(n+5) {
+                    display: none;
+                }
+            }
+            @media @desktop-md {
+                &:nth-child(n+5) {
+                    display: block;
+                }
+                &:nth-child(n+6) {
+                    display: none;
+                }
+            }
+        }
+        &.slick-initialized {
+            .item {
+                @media @mobile-lg {
+                    &:nth-child(n+3) {
+                        display: block;
+                    }
+                }
+                @media @tablet-md {
+                    &:nth-child(n+4) {
+                        display: block;
+                    }
+                }
+                @media @desktop-sm {
+                    &:nth-child(n+5) {
+                        display: block;
+                    }
+                }
+                @media @desktop-md {
+                    .item:nth-child(n+6) {
+                        display: block;
+                    }
+                }
             }
         }
 
@@ -74,6 +125,61 @@
                 padding-left: 3px;
                 font-size: 12px;
             }
+        }
+    }
+
+    .slick-list {
+        width: 250px;
+        @media @mobile-lg {
+            width: 500px;
+        }
+        @media @tablet-md {
+            width: 750px;
+        }
+        @media @desktop-sm {
+            width: 1000px;
+        }
+        @media @desktop-md {
+            width: 1250px;
+        }
+
+        * {
+            outline: none;
+        }
+    }
+
+    .slick-arrow {
+        width: 50px;
+        height: 60px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 5px;
+        bottom: 0;
+        background: @color-black;
+        cursor: pointer;
+
+        &:before {
+            width: 13px;
+            height: 13px;
+            border: none;
+            border-top: 3px solid @color-white;
+            border-right: 3px solid @color-white;
+            margin: auto !important;
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: -8px;
+            opacity: 1;
+            transform: rotate(45deg);
+            backface-visibility: hidden;
+        }
+
+        &.prev {
+            display: none;
         }
     }
 }
