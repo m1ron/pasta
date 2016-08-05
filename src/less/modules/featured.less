@@ -2,24 +2,95 @@
    FEATURED
    ========================================================================== */
 .featured {
-    padding: 20px 0 30px;
-    position: relative;
-    @media @mobile-lg {
-        padding: 30px;
+    .list {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        &:after {
+            .clearfix;
+        }
+
+        .item {
+            width: 100%;
+            padding: 20px 0 30px;
+            position: relative;
+            @media @mobile-lg {
+                padding: 30px;
+            }
+            @media @tablet-md {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+
+            &:nth-child(n+2) {
+                display: none;
+            }
+        }
+        &.slick-initialized {
+            .item {
+                &:nth-child(n+2) {
+                    display: block;
+                }
+            }
+            * {
+                outline: none;
+            }
+        }
     }
-    @media @tablet-md {
-        padding-top: 60px;
-        padding-bottom: 60px;
+
+    .slick-arrow {
+        width: 50px;
+        height: 60px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        bottom: 0;
+        background: @color-black;
+        cursor: pointer;
+        @media @mobile-lg {
+            margin-right: -305px;
+            right: 50%;
+        }
+        @media @tablet-md {
+            margin-right: -410px;
+        }
+        @media @desktop-sm {
+            margin-right: -535px;
+        }
+        @media @desktop-md {
+            margin-right: -660px;
+        }
+
+        &:before {
+            width: 13px;
+            height: 13px;
+            border: none;
+            border-top: 3px solid @color-white;
+            border-right: 3px solid @color-white;
+            margin: auto !important;
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: -8px;
+            opacity: 1;
+            transform: rotate(45deg);
+            backface-visibility: hidden;
+        }
+
+        &.prev {
+            display: none;
+        }
     }
 
     .wrapper {
         @media (max-width: @w-mobile-lg) {
             max-width: none;
         }
-    }
-
-    &:after {
-        .clearfix;
     }
 
     .text {

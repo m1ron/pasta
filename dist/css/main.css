@@ -42,14 +42,65 @@ body {
 /* ==========================================================================
    FEATURED
    ========================================================================== */
-.featured {
-  padding: 20px 0 30px;
-  position: relative;
+.featured .list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
-.featured:after {
+.featured .list:after {
   display: table;
   content: "\0020";
   clear: both;
+}
+.featured .list .item {
+  width: 100%;
+  padding: 20px 0 30px;
+  position: relative;
+}
+.featured .list .item:nth-child(n+2) {
+  display: none;
+}
+.featured .list.slick-initialized .item:nth-child(n+2) {
+  display: block;
+}
+.featured .list.slick-initialized * {
+  outline: none;
+}
+.featured .slick-arrow {
+  width: 50px;
+  height: 60px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  bottom: 0;
+  background: #000;
+  cursor: pointer;
+}
+.featured .slick-arrow:before {
+  width: 13px;
+  height: 13px;
+  border: none;
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
+  margin: auto !important;
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: -8px;
+  opacity: 1;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.featured .slick-arrow.prev {
+  display: none;
 }
 .featured .text {
   max-width: 400px;
@@ -216,8 +267,12 @@ body {
   .wrapper {
     max-width: 650px;
   }
-  .featured {
+  .featured .list .item {
     padding: 30px;
+  }
+  .featured .slick-arrow {
+    margin-right: -305px;
+    right: 50%;
   }
   .featured .photo {
     width: 500px;
@@ -236,9 +291,12 @@ body {
   .wrapper {
     max-width: 860px;
   }
-  .featured {
+  .featured .list .item {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+  .featured .slick-arrow {
+    margin-right: -410px;
   }
   .featured .text {
     width: 240px;
@@ -270,6 +328,9 @@ body {
 @media (min-width: 1110px) {
   .wrapper {
     max-width: 1110px;
+  }
+  .featured .slick-arrow {
+    margin-right: -535px;
   }
   .featured .text {
     width: 280px;
@@ -305,6 +366,9 @@ body {
 @media (min-width: 1360px) {
   .wrapper {
     max-width: 1360px;
+  }
+  .featured .slick-arrow {
+    margin-right: -660px;
   }
   .featured .text {
     width: 380px;
